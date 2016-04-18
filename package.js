@@ -1,8 +1,8 @@
 Package.describe({
   summary: "A package that provides a blog at /blog",
-  version: "0.8.5",
-  name: "ryw:blog",
-  git: "https://github.com/meteor-blog/meteor-blog.git"
+  version: "0.1.0",
+  name: "rathiusdark:blog",
+  git: "https://github.com/rathius/meteor-blog-materialize.git"
 });
 
 Package.onUse(function(api) {
@@ -49,7 +49,8 @@ Package.onUse(function(api) {
     'less',
     'aslagle:reactive-table@0.5.5',
     'liberation:shareit@1.0.1',
-    'flawless:meteor-toastr@1.0.1'
+    'flawless:meteor-toastr@1.0.1',
+    'materialize:materialize'
   ], 'client');
 
   // FILES FOR CLIENT

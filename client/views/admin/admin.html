@@ -2,21 +2,23 @@
   <div class="meteor-blog-admin">
     <div class="container meteor-blog-admin-index">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col m3">
           <h1>{{BlogLanguage.adminHeader}}</h1>
         </div>
-        <div class="col-md-9">
+        <div class="col m9">
           <a href="#" data-action="new-blog" class="btn btn-default">
-            <i class="fa fa-plus"></i> {{BlogLanguage.addPost}}
+            <i class="material-icons">add</i> {{BlogLanguage.addPost}}
           </a>
-          <select data-action="filtering" class="form-control">
-            <option value="all">{{BlogLanguage.allPosts}}</option>
-            <option value="mine">{{BlogLanguage.myPosts}}</option>
-          </select>
+          <div class="input-field col s12">
+	          <select data-action="filtering">
+		          <option value="all">{{BlogLanguage.allPosts}}</option>
+		          <option value="mine">{{BlogLanguage.myPosts}}</option>
+	          </select>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col m12">
           {{#if subsReady}}
             {{#if posts}}
               {{> reactiveTable collection=posts settings=table}}
@@ -49,22 +51,27 @@
   {{#if publishedAt}}
     {{blogFormatDate publishedAt}}
   {{else}}
-    <i class="fa fa-ban"></i>
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    	<path fill="#000000" d="M12,0A12,12 0 0,1 24,12A12,12 0 0,1 12,24A12,12 0 0,1 0,12A12,12 0 0,1 12,0M12,2A10,10 0 0,0 2,12C2,14.4 2.85,16.6 4.26,18.33L18.33,4.26C16.6,2.85 14.4,2 12,2M12,22A10,10 0 0,0 22,12C22,9.6 21.15,7.4 19.74,5.67L5.67,19.74C7.4,21.15 9.6,22 12,22Z" />
+    </svg>
   {{/if}}
 </template>
 
 <template name="blogAdminVisibleColumn">
-  <select data-action="visibility" class="form-control input-sm">
-    <option value="draft" selected={{isSelected "draft"}}>{{BlogLanguage.postVisibilityAdmins}}</option>
-    <option value="private" selected={{isSelected "private"}}>{{BlogLanguage.postVisibilityLink}}</option>
-    <option value="public" selected={{isSelected "public"}}>{{BlogLanguage.postVisibilityAnyone}}</option>
-  </select>
+	<div class="input-field col s12">
+		<select data-action="visibility">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="draft" selected={{isSelected "draft"}}>{{BlogLanguage.postVisibilityAdmins}}Option 1</option>
+			<option value="private" selected={{isSelected "private"}}>{{BlogLanguage.postVisibilityLink}}</option>
+			<option value="public" selected={{isSelected "public"}}>{{BlogLanguage.postVisibilityAnyone}}</option>
+		</select>
+	</div>
 </template>
 
 <template name="blogAdminEditColumn">
-  <a href="{{blogPathFor 'blogAdminEdit'}}"><i class="fa fa-edit"></i></a>
+  <a href="{{blogPathFor 'blogAdminEdit'}}"><i class="material-icons">mode_edit</i></a>
 </template>
 
 <template name="blogAdminDeleteColumn">
-  <a href="#" data-action="delete"><i class="fa fa-trash-o"></i></a>
+  <a href="#" data-action="delete"><i class="material-icons">delete</i></a>
 </template>

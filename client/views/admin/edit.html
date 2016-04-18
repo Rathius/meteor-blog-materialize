@@ -2,7 +2,7 @@
   <div class="meteor-blog-admin">
     <div class="container meteor-blog-admin-edit">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col m8 offset-m2">
           <h1>
             <strong>{{BlogLanguage.editPost}}</strong>
           </h1>
@@ -10,62 +10,76 @@
           {{#if subsReady}}
             {{#with post}}
               <form>
-                <div class="row form-group">
-                  <div class="col-md-9">
-                    <label>{{BlogLanguage.title}}</label>
-                    <input tabindex="1" type="text" class="form-control" name="title" placeholder="{{BlogLanguage.title}}" value="{{title}}">
-                  </div>
-                  <div class="col-md-3">
-                  <label for="featured-image">{{BlogLanguage.featuredImage}}</label>
-                    <input type="file" id="input-featured-image" name="featured-image" class="hidden">
-                    <label class="btn btn-info" for="input-featured-image">
-                      {{#if featuredImage}}
-                        {{featuredImageName}}
-                      {{else}}
-                        {{BlogLanguage.selectFile}}
-                      {{/if}}
-                    </label>
-                    {{#if featuredImage}}
-                      &nbsp;<a href="#" data-action="delete-featured"><i class="fa fa-trash-o"></i></a>
-                    {{/if}}
-                    <p class="help-block">
-                      <div class="checkbox">
-                        <label for="background-title">
-                          <input type="checkbox" name="background-title" id="background-title" checked="{{#if titleBackground}}checked{{/if}}"> {{BlogLanguage.imageAsBackground}}
-                        </label>
-                      </div>
-                    </p>
-                  </div>
+                <div class="row">
+					<div class="input-field col m9">
+						<label>{{BlogLanguage.title}}</label>
+						<input tabindex="1" type="text" class="validate" name="title" id="title" placeholder="{{BlogLanguage.title}}" value="{{title}}">
+					</div>
+					<div class="col m3">
+		                <form action="#">
+			                <div class="file-field input-field">
+								<div class="btn">
+									<span>File</span>
+									<input type="file" id="input-featured-image" name="featured-image" class="hidden">
+									<label for="featured-image">{{BlogLanguage.featuredImage}}</label>
+								</div>
+								<div class="file-path-wrapper">
+									<input class="file-path validate" type="text">
+									<label class="btn btn-info" for="input-featured-image">
+										{{#if featuredImage}}
+											{{featuredImageName}}
+										{{else}}
+											{{BlogLanguage.selectFile}}
+										{{/if}}
+									</label>
+								</div>
+			                </div>
+		                </form>
+						{{#if featuredImage}}
+							&nbsp;<a href="#" data-action="delete-featured"><i class="material-icons">delete</i></a>
+							{{/if}}
+							<p class="help-block">
+								<div class="checkbox">
+									<label for="background-title">
+									<input type="checkbox" name="background-title" id="background-title" checked="{{#if titleBackground}}checked{{/if}}"> {{BlogLanguage.imageAsBackground}}
+									</label>
+	                      		</div>
+                    		</p>
+                  	</div>
                 </div>
-                <div class="row form-group">
-                  <div class="col-md-4">
+                <div class="row">
+                  <div class="input-field col m4">
                     <label>{{BlogLanguage.tags}}</label>
                     <input tabindex="2" type="text" class="form-control" name="tags" placeholder="{{BlogLanguage.enterTag}}" value="{{blogJoinTags tags}}" data-role="tagsinput">
                   </div>
-                  <div class="col-md-4">
+                  <div class="input-field col m4">
                     <label>{{BlogLanguage.slug}}</label>
                     <input type="text" class="form-control" name="slug" placeholder="{{BlogLanguage.slug}}" value="{{slug}}">
                   </div>
-                  <div class="col-md-4">
+                  <div class="input-field col m4">
                     <label>{{BlogLanguage.metaDescription}}</label>
                     <input type="text" class="form-control" name="description" placeholder="{{BlogLanguage.metaDescription}}" value="{{description}}">
                   </div>
                 </div>
-                <div class="row form-group">
-                  <div class="col-md-12">
+                <div class="row">
+                  <div class="input-field col s12">
                     <label>{{BlogLanguage.body}}</label>
                     <div class="edit-mode">
                       <a href="#" data-action="toggle-visual" class="selected">{{BlogLanguage.showAsVisual}}</a>
                       -
                       <a href="#" data-action="toggle-html">{{BlogLanguage.showAsHtml}}</a>
                     </div>
-                    <textarea hidden class="html-editor col-xs-12"></textarea>
+                    <textarea hidden id="textarea1" class="materialize-textarea html-editor col s12"></textarea>
+          <label for="textarea1">Textarea</label>
+                    
                     <div class="editable" tabindex="3"></div>
-                    <button type="submit" class="btn btn-default">
-                      <i class="fa fa-save"></i> {{BlogLanguage.save}}
-                    </button>
+                    <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
+    <i class="material-icons right">send</i> {{BlogLanguage.save}}
+					</button>
                     <a href="{{blogPathFor 'blogAdmin'}}" class="btn btn-default">
-                      <i class="fa fa-ban"></i> {{BlogLanguage.cancel}}
+                     	<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M12,0A12,12 0 0,1 24,12A12,12 0 0,1 12,24A12,12 0 0,1 0,12A12,12 0 0,1 12,0M12,2A10,10 0 0,0 2,12C2,14.4 2.85,16.6 4.26,18.33L18.33,4.26C16.6,2.85 14.4,2 12,2M12,22A10,10 0 0,0 22,12C22,9.6 21.15,7.4 19.74,5.67L5.67,19.74C7.4,21.15 9.6,22 12,22Z" />
+    					</svg> {{BlogLanguage.cancel}}
                     </a>
                   </div>
                 </div>
