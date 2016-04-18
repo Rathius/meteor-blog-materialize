@@ -1,6 +1,6 @@
 Package.describe({
   summary: "A package that provides a blog at /blog",
-  version: "0.1.0",
+  version: "0.9.0",
   name: "rathiusdark:blog",
   git: "https://github.com/rathius/meteor-blog-materialize.git"
 });
