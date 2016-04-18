@@ -36,7 +36,8 @@ Package.onUse(function(api) {
     'collections/comment.coffee',
     'collections/tag.coffee',
     'collections/files.coffee',
-    'router.coffee'
+    'router.coffee',
+    'meteor-blog-materialize.coffee'
   ], both);
 
   // PACKAGES FOR CLIENT
@@ -50,7 +51,8 @@ Package.onUse(function(api) {
     'aslagle:reactive-table@0.5.5',
     'liberation:shareit@1.0.1',
     'flawless:meteor-toastr@1.0.1',
-    'materialize:materialize'
+    'materialize:materialize',
+    'useraccounts:materialize'
   ], 'client');
 
   // FILES FOR CLIENT
@@ -63,9 +65,9 @@ Package.onUse(function(api) {
     'client/stylesheets/lib/side-comments/side-comments.css',
     'client/stylesheets/lib/side-comments/default.css',
     'client/compatibility/bower_components/medium-editor/dist/css/medium-editor.css',
-    'client/compatibility/bower_components/medium-editor/dist/css/themes/bootstrap.css',
+    'client/compatibility/bower_components/medium-editor/dist/css/themes/default.css',
     'client/compatibility/bower_components/medium-editor-insert-plugin/dist/css/medium-editor-insert-plugin.css',
-    'client/stylesheets/lib/bootstrap-tagsinput.css',
+    'client/stylesheets/lib/materialize-tags.css',
 
     // JAVASCRIPT LIBS
     'client/compatibility/side-comments.js',
@@ -77,7 +79,7 @@ Package.onUse(function(api) {
     'client/compatibility/bower_components/blueimp-file-upload/js/jquery.iframe-transport.js',
     'client/compatibility/bower_components/blueimp-file-upload/js/jquery.fileupload.js',
     'client/compatibility/bower_components/medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.js',
-    'client/compatibility/bootstrap-tagsinput.js',
+    'client/compatibility/materialize-tags.js',
     'client/compatibility/typeahead.jquery.js',
     'client/compatibility/beautify-html.js',
     'client/compatibility/highlight.pack.js',
@@ -126,7 +128,7 @@ Package.onUse(function(api) {
 
 Package.onTest(function (api) {
   api.use('kadira:flow-router');
-  api.use('ryw:blog');
+  api.use('rathiusdark:blog');
   api.use('tinytest');
   api.use('coffeescript');
 
