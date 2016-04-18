@@ -1,15 +1,15 @@
-# Meteor Blog
+# Meteor Blog w/Materialze Styled Admin Area
 
 This Meteor package gives you a basic, out-of-the-box blog at `/blog` (or where
 ever). 
 
 This blog is very much a work in progress. To help decide what gets added next,
-vote with your [Github issues](https://github.com/meteor-blog/meteor-blog/issues)!
+vote with your [Github issues](https://github.com/rathius/meteor-blog-materialize/issues)!
 
-**NEW REPO**: We have moved `meteor-blog` to a Github org. Please update your
-remotes with `git remote set-url origin https://github.com/meteor-blog/meteor-blog.git`.
+**NEW REPO for meteor-blog-materialize**: We have moved `meteor-blog` to a Github repo. Please update your
+remotes with `git remote set-url origin https://github.com/rathius/meteor-blog-materialize.git`.
 
-[![Meteor Icon](http://icon.meteor.com/package/ryw:blog)](https://atmospherejs.com/ryw/blog)
+[![Meteor Icon](http://icon.meteor.com/package/rathiusdark:blog)](https://atmospherejs.com/rathiusdark/blog)
 
 ## Table of Contents
 
@@ -59,7 +59,7 @@ http://blog-example.meteor.com ([repo](https://github.com/meteor-blog/example-bl
 ### Installation
 
 ```bash
-$ meteor add ryw:blog
+$ meteor add rathiusdark:blog
 ```
 
 You will by default get routes for:
@@ -93,7 +93,7 @@ These paths are customizable (see below). `/admin/blog` requires that `Meteor.us
 
 ### Roadmap
 
-Check out the [enhancements tracker](https://github.com/meteor-blog/meteor-blog/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement)
+Check out the [enhancements tracker](https://github.com/rathius/meteor-blog-materialize/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement)
 
 ### Changelog
 
@@ -173,7 +173,7 @@ $ meteor add mrt:bootstrap-3
 
 ### Custom Templates
 
-The admin templates are designed for use with Bootstrap. However, the front-end
+The admin templates are designed for use with MaterializeCSS. However, the front-end
 is bare markup, ready to by styled, and does not depend on any CSS framework at
 all. If the default templates aren't doing it for you, you can override the
 default templates with your own by setting configuration variables:
