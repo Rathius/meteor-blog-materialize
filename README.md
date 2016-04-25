@@ -6,8 +6,7 @@ ever).
 This blog is very much a work in progress. To help decide what gets added next,
 vote with your [Github issues](https://github.com/rathius/meteor-blog-materialize/issues)!
 
-**NEW REPO for meteor-blog-materialize**: We have moved `meteor-blog` to a Github repo. Please update your
-remotes with `git remote set-url origin https://github.com/rathius/meteor-blog-materialize.git`.
+**REPO for meteor-blog-materialize**: `git remote set-url origin https://github.com/rathius/meteor-blog-materialize.git`.
 
 [![Meteor Icon](http://icon.meteor.com/package/rathiusdark:blog)](https://atmospherejs.com/rathiusdark/blog)
 
@@ -26,6 +25,8 @@ remotes with `git remote set-url origin https://github.com/rathius/meteor-blog-m
     * [pathFor](#pathfor)
   * [Roles](#roles)
   * [Admin Templates](#admin-templates)
+  * [Materialize Initializaion](#materialize-initialization)
+  * [UserAccounts Usage](#useraccounts-usage)
   * [Custom Templates](#custom-templates)
     * [Custom Layout](#custom-layout)
     * [Custom notFound](#custom-notfound)
@@ -42,6 +43,7 @@ remotes with `git remote set-url origin https://github.com/rathius/meteor-blog-m
   * [Recent Posts Widget](#recent-posts-widget)
   * [RSS](#rss)
   * [Language Support](#language-support)
+  * [Known Issues](#known-issues)
 * [License](#license)
 
 ## Introduction
@@ -49,12 +51,12 @@ remotes with `git remote set-url origin https://github.com/rathius/meteor-blog-m
 ### Why?
 
 We wanted a way to add a meteor-based blog within an existing project without
-running another app.
+running another app that also included the MaterializeCSS mobile framework.
 
 ### Example App
 
 You can view an example application (without customization) at
-http://blog-example.meteor.com ([repo](https://github.com/meteor-blog/example-blog-app)).
+http:// ([repo]()).
 
 ### Installation
 
@@ -90,6 +92,7 @@ These paths are customizable (see below). `/admin/blog` requires that `Meteor.us
 * Have Public, Private & Draft modes
 * Support for both Iron Router and Flow Router
 * RSS feed
+* MaterializeCSS styled admin area
 
 ### Roadmap
 
@@ -101,13 +104,12 @@ Changes between releases can be found in [`CHANGES.md`](CHANGES.md)
 
 ## Concepts
 
-You do not need any configuration at all, if you are happy with the defaults. To
-configure your blog, create a file shared on client/server, probably in
+Other than a small script to initialize the Materialize nav (covered below), if you are happy with the defaults the no further configuration is needed. For a custom configuration for your blog, create a file shared on client/server, probably in
 `lib/blog.js`. 
 
 ### Routing
 
-Meteor blog works with both Iron Router and Flow Router. If your app and the
+Material Meteor blog works with both Iron Router and Flow Router, although since UserAccounts is also being used, you will need to install either [useraccounts:iron-routing](https://atmospherejs.com/useraccounts/iron-routing) or [useraccounts:flow-routing](https://atmospherejs.com/useraccounts/flow-routing). If your app and the
 blog have conflicting routes, your app will get priority.
 
 If you use Flow Router, you must add `kadira:blaze-layout` to your app, as that is how Meteor blog renders its templates in a Flow Router route.
@@ -164,12 +166,33 @@ add these roles somehow:
 
 ### Admin Templates
 
-The admin templates are designed for use with Bootstrap. To use the admin area, 
-you should add the meteor `bootstrap-3` package.
+The admin templates are designed for use with MaterializeCSS. You need do nothing special to use the admin area, the materialize package is already included
 
-```bash
-$ meteor add mrt:bootstrap-3
+### Materialize Initialization
+
+No special configuration is needed to use MaterializeCSS as the package stands in its initial form. To use the Materialize menu system an initialization script will be needed. You can put this in an onRendered or onCreated helper in your helper.js file (If you do not have or use a helper.js file in your client folder). The following code is a good working example, just change <template_name> to the template you wish to add the helper to. I normally use it for the "nav" template, e.g., Template.nav.onRendered...
+
+```javascript
+Template.<template_name>.onRendered(function () {
+	$(".dropdown-button").dropdown({
+      closeOnClick: true // Closes dropdown on <a> clicks, useful for Angular/Meteor
+    });
+    $(".button-collapse").sideNav({
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
+  	$('.collapsible').collapsible();
+});
 ```
+
+To use the Materialize Icon set the following line of code needs to be added to the ```html <head></head>``` area of your app.
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+### UserAccounts Usage
+
+In order to use the included [useraccounts](https://atmospherejs.com/useraccounts) packages you need to add an `accounts-X` package where X denotes the individual service(s) name, e.g., google, facebook, twitter, password, etc.
 
 ### Custom Templates
 
@@ -490,6 +513,9 @@ Blog.config({
   dateFormat: 'MMM Do, YYYY'
 });
 ```
+
+## Known Issues
+The 'useraccounts:materialize' Meteor package causes issues with javascript opening and closing brackets within the meteor-blog-materialize package.
 
 ## License
 

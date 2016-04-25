@@ -1,5 +1,9 @@
 ## Changelog
 
+### v0.9.0
+* Removed bootstrap and all references to it from package contents
+* Replaced bootstrap specific HTML class tags in admin templates with materialize class tags
+
 ### v0.8.5
 
 * Add setting for custom date formats (#244)

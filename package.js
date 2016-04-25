@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "A package that provides a blog at /blog",
+  summary: "A fork of the ryw:blog package that provides a blog at /blog but with the Bootstrap framework replaced by the Materialize mobile framework",
   version: "0.9.0",
   name: "rathiusdark:blog",
   git: "https://github.com/rathius/meteor-blog-materialize.git"
@@ -24,7 +24,9 @@ Package.onUse(function(api) {
     'meteorhacks:subs-manager@1.6.2',
     'cfs:standard-packages@0.5.9',
     'cfs:gridfs@0.0.33',
-    'cfs:s3@0.1.3'
+    'cfs:s3@0.1.3',
+    'useraccounts:core',
+    'service-configuration',
   ], both);
 
   // FILES FOR SERVER AND CLIENT
@@ -36,8 +38,7 @@ Package.onUse(function(api) {
     'collections/comment.coffee',
     'collections/tag.coffee',
     'collections/files.coffee',
-    'router.coffee',
-    'meteor-blog-materialize.coffee'
+    'router.coffee'
   ], both);
 
   // PACKAGES FOR CLIENT
