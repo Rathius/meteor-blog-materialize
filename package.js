@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "A fork of the ryw:blog package that provides a blog at /blog but with the Materialize mobile framework",
+  summary: "A fork of the ryw:blog package that provides a blog at /blog",
   version: "0.9.0",
   name: "rathiusdark:blog",
   git: "https://github.com/rathius/meteor-blog-materialize.git"
@@ -26,7 +26,8 @@ Package.onUse(function(api) {
     'cfs:standard-packages@0.5.9',
     'cfs:gridfs@0.0.33',
     'cfs:s3@0.1.3',
-    'useraccounts:core'
+    'useraccounts:core@1.14.2',
+    'useraccounts:materialize@1.14.2'
   ], both);
 
   // FILES FOR SERVER AND CLIENT
@@ -52,8 +53,7 @@ Package.onUse(function(api) {
     'aslagle:reactive-table@0.5.5',
     'liberation:shareit@1.0.1',
     'flawless:meteor-toastr@1.0.1',
-    'materialize:materialize',
-    'useraccounts:materialize'
+    'materialize:materialize@0.97.5'
   ], 'client');
 
   // FILES FOR CLIENT
