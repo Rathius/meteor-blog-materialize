@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "A fork of the ryw:blog package that provides a blog at /blog but with the Bootstrap framework replaced by the Materialize mobile framework",
+  summary: "A fork of the ryw:blog package that provides a blog at /blog but with the Materialize mobile framework",
   version: "0.9.0",
   name: "rathiusdark:blog",
   git: "https://github.com/rathius/meteor-blog-materialize.git"
@@ -13,6 +13,7 @@ Package.onUse(function(api) {
   // PACKAGES FOR SERVER AND CLIENT
 
   api.use([
+    'service-configuration',
     'underscore',
     'coffeescript',
     'accounts-base',
@@ -25,8 +26,7 @@ Package.onUse(function(api) {
     'cfs:standard-packages@0.5.9',
     'cfs:gridfs@0.0.33',
     'cfs:s3@0.1.3',
-    'useraccounts:core',
-    'service-configuration',
+    'useraccounts:core'
   ], both);
 
   // FILES FOR SERVER AND CLIENT
