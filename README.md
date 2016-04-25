@@ -109,7 +109,7 @@ Other than a small script to initialize the Materialize nav (covered below), if 
 
 ### Routing
 
-Material Meteor blog works with both Iron Router and Flow Router, although since UserAccounts is also being used, you will need to install either [useraccounts:iron-routing](https://atmospherejs.com/useraccounts/iron-routing) or [useraccounts:flow-routing](https://atmospherejs.com/useraccounts/flow-routing). If your app and the
+Material Meteor blog works with both Iron Router and Flow Router, although since UserAccounts is also being used, you will also need to install either [useraccounts:iron-routing](https://atmospherejs.com/useraccounts/iron-routing) or [useraccounts:flow-routing](https://atmospherejs.com/useraccounts/flow-routing). If your app and the
 blog have conflicting routes, your app will get priority.
 
 If you use Flow Router, you must add `kadira:blaze-layout` to your app, as that is how Meteor blog renders its templates in a Flow Router route.
